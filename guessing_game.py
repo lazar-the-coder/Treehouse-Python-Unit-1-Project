@@ -25,9 +25,7 @@ def play_game():
     while guess_number != str(answer_number):
         try:
             guess_number = int(guess_number)
-            if guess_number < 0:
-                print("thats not between 0 and 15")
-            elif guess_number > 15:
+            if guess_number < 0 or guess_number > 15:
                 print("thats not between 0 and 15")
             elif guess_number > answer_number:
                 print("It's lower")
