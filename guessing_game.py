@@ -12,6 +12,8 @@ NOTE: If you strongly prefer to work locally on your own computer, you can total
 import random
 
 high_scores = []
+min_number = 1
+max_number = 16
 
 def start_game():
     print("***Welcome to the number guessing game***\n***We will chose a number***\n***Try and guess what it is***")
@@ -19,14 +21,15 @@ def start_game():
 
 def play_game():
     player_name = input("Please enter your name  ")
-    answer_number = random.randint(0, 15)
-    guess_count = 1
-    guess_number = input("Choose a number from 0 to 15  ")
-    while guess_number != str(answer_number):
+    answer_number = random.randint(min_number, max_number)
+    guess_count = 0
+    guess_number = (answer_number - 1)
+    print("The machine is thinking of a number between {} and {}".format(min_number, max_number))
+    while guess_number != answer_number:
         try:
-            guess_number = int(guess_number)
-            if guess_number < 0 or guess_number > 15:
-                print("thats not between 0 and 15")
+            guess_number = int(input("Choose a number  "))
+            if guess_number < min_number or guess_number > max_number:
+                print("thats not within the range")
             elif guess_number > answer_number:
                 print("It's lower")
             elif guess_number < answer_number:
@@ -34,8 +37,6 @@ def play_game():
             guess_count += 1
         except ValueError:
             print("thats not a number")
-        
-        guess_number = input("Choose again  ")
     victory(player_name, guess_count)
 
 def victory(player_name, guess_count):
