@@ -27,7 +27,7 @@ def play_game():
     print("The machine is thinking of a number between {} and {}".format(min_number, max_number))
     while guess_number != answer_number:
         try:
-            guess_number = int(input("Choose a number  "))
+            guess_number = int(input("Choose an integer  "))
             if guess_number < min_number or guess_number > max_number:
                 print("thats not within the range")
             elif guess_number > answer_number:
@@ -36,7 +36,7 @@ def play_game():
                 print("It's higher")
             guess_count += 1
         except ValueError:
-            print("thats not a number")
+            print("thats not a integer")
     victory(player_name, guess_count)
 
 def victory(player_name, guess_count):
