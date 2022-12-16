@@ -2,27 +2,27 @@
 Python Web Development Techdegree
 Project 1 - Number Guessing Game
 --------------------------------
-
-For this first project we will be using Workspaces. 
-
-NOTE: If you strongly prefer to work locally on your own computer, you can totally do that by clicking: File -> Download Workspace in the file menu after you fork the snapshot of this workspace.
-
 """
 
 import random
 
 high_scores = []
+#you can change the range here, thus adjusting the difficulty
 min_number = 1
 max_number = 16
 
 def start_game():
+    #The welcome is separate so it doesn't appear every time.
     print("***Welcome to the number guessing game***\n***We will chose a number***\n***Try and guess what it is***")
     play_game()
 
 def play_game():
+    #collects name for high score chart.
     player_name = input("Please enter your name  ")
+    #gets a number in the range
     answer_number = random.randint(min_number, max_number)
     guess_count = 0
+    #Makes sure the loop starts by setting the guess not equal to answer
     guess_number = (answer_number - 1)
     print("The machine is thinking of a number between {} and {}".format(min_number, max_number))
     while guess_number != answer_number:
