@@ -45,12 +45,13 @@ def play_game():
 
 def victory(player_name, guess_count):
     print("Got it")
-    #sets the new high score
-    if guess_count < high_score[0]:
-        high_score[0] = guess_count
     #adds scores to score list
     previous_scores.append([player_name, guess_count])
     print("***Congratulations on guessing the right number***\n***It took you", guess_count, "guesses***")
+    #sets the new high score
+    if guess_count < high_score[0]:
+        high_score[0] = guess_count
+        print("!!!You beat the high score!!!")
     #prints previous scores.
     print("***Here are the previous scores***")
     for score in previous_scores:
@@ -59,9 +60,10 @@ def victory(player_name, guess_count):
         answer = input("Want to play again? (Y/N)")
         if answer.lower() == "y":
             play_game()
+            break
         elif answer.lower() == "n":
             print("Alright, thanks for playing.")
-            exit()
+            break
         else:
             print("I didn't understand your answer")
 
